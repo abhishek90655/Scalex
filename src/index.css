@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 240 60% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 212 93% 49%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl shadow-lg;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 py-6;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .text-gradient, .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-blue-gradient font-bold;
+  }
+
+  .highlighted-text {
+    @apply font-bold text-scalex-lightBlue;
+  }
+  
+  .badge-text {
+    @apply text-xs font-medium text-scalex-lightBlue;
+  }
+  
+  /* Calendar specific styles */
+  .rdp-day_selected, 
+  .rdp-day_selected:hover {
+    @apply bg-scalex-blue text-white rounded-md border-0 !important;
+  }
+  
+  .rdp-day_today {
+    @apply font-bold border border-scalex-lightBlue rounded-md;
+  }
+  
+  .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+    @apply bg-white/10 text-white rounded-md;
+  }
+  
+  /* Override any conflicting styles */
+  .rdp-day:focus, .rdp-day_selected:focus {
+    @apply bg-scalex-blue text-white rounded-md border-0 outline-none;
+  }
+  
+  .rdp-day[aria-selected="true"] {
+    @apply bg-scalex-blue text-white border-0 shadow-none !important;
+  }
+  
+  /* Grid pattern background */
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .reveal-on-scroll {
+    @apply opacity-0;
+  }
+  
+  .reveal-on-scroll.revealed {
+    @apply animate-fade-in;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
